@@ -28,7 +28,7 @@ class ActorCritic(nn.Module):
 
         if deterministic:
             action = torch.argmax(dist.probs)
-            log_prob = dist.log_prob(action).detach()  # 🔑 detach
+            log_prob = dist.log_prob(action).detach()
         else:
             action = dist.sample()
             log_prob = dist.log_prob(action)
